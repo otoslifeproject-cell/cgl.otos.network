@@ -791,6 +791,33 @@ em{font-style:italic}
     ul.blist.bl-wide li:last-child{border-bottom:0;padding-bottom:0}
     .on-night ul.blist.bl-wide li{border-bottom-color:rgba(246,240,228,.14)}
     ul.blist.bl-wide li b{color:#a83f04}
+
+    /* ---- THE ELVANSE EFFECT (19 Sep 2026) ----
+       Transparent PNG, pinned to the viewport while the text scrolls over it.
+       The layer is a child of the SECTION, so 100% is the true page width. */
+    section[aria-labelledby="s3"]{overflow:visible}
+    .elvlayer{
+      position:sticky;
+      top:18vh;
+      height:100vh;
+      margin-bottom:-100vh;
+      width:100%;
+      z-index:0;
+      pointer-events:none;
+      background-image:url(assets/elvanse-trans.png);
+      background-repeat:no-repeat;
+      background-position:-1% center;
+      background-size:74% auto;
+      opacity:.92;
+    }
+    section[aria-labelledby="s3"] .wrap{position:relative;z-index:1}
+    @media(max-width:860px){
+      .elvlayer{opacity:.4;background-size:150% auto;background-position:left center;
+        top:12vh;height:70vh;margin-bottom:-70vh}
+    }
+    @media(prefers-reduced-motion:reduce){
+      .elvlayer{position:absolute;top:0;left:0;height:100%;margin:0}
+    }
 </style>
   <style>
   /* the six services — layout additions only, no new colours */
@@ -981,6 +1008,7 @@ p.querySelector('.tfpop-x').addEventListener('click',go);var t=setTimeout(go,130
 <div class="seam seam-r" aria-hidden="true"><i></i></div>
 
 <section class="section g-beige" aria-labelledby="s3">
+  <div class="elvlayer" aria-hidden="true"></div>
   <span class="grain" aria-hidden="true"></span>
   <div class="wrap"><div class="grid">
     <div class="rail rv">
