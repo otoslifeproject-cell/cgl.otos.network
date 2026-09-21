@@ -253,8 +253,8 @@ em{font-style:italic}
 /* the hero mark — the brain as a graphic, not a watermark */
 .heromark{
   position:absolute;z-index:1;pointer-events:none;
-  right:2%;top:50%;translate:0 -50%;
-  width:min(34%,420px);aspect-ratio:739/557;
+  right:4%;top:clamp(4rem,9vw,7.5rem);translate:0 0;
+  width:min(32%,400px);aspect-ratio:739/557;
   background:var(--brain) no-repeat center/contain;
 }
 @media(min-width:1000px){
@@ -443,7 +443,7 @@ em{font-style:italic}
   position:absolute;display:block;width:clamp(78px,9vw,132px);aspect-ratio:739/557;
   background:var(--brain) no-repeat center/contain;
   filter:drop-shadow(0 14px 22px rgba(26,22,19,.18));
-  top:0;translate:0 12px;
+  top:50%;translate:0 -50%;
 }
 .seam-r i{right:clamp(1rem,5vw,5rem);rotate:-7deg}
 .seam-l i{left:clamp(1rem,5vw,5rem);rotate:6deg}
